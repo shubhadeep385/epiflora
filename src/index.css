@@ -1,0 +1,228 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --font-serif: 'Source Serif 4', 'EB Garamond', Georgia, serif;
+  --font-sans: 'Hanken Grotesk', 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  --radius-bento: 1.5rem;
+  --radius-pill: 9999px;
+
+  --color-canvas: var(--bg-app);
+  --color-surface: var(--bg-card);
+  --color-surface-sunken: var(--bg-card-sunken);
+  --color-hairline: var(--border-card);
+
+  --color-forest-50: var(--bg-chip);
+  --color-forest-600: var(--color-primary);
+  --color-forest-700: var(--color-primary);
+  --color-forest-800: var(--text-heading);
+
+  --color-ink: var(--text-body);
+  --color-ink-muted: var(--text-muted);
+  --color-ink-subtle: var(--text-muted);
+
+  --color-risk-low: #22C55E;
+  --color-risk-elevated: #EAB308;
+  --color-risk-high: #F97316;
+  --color-risk-critical: #EF4444;
+
+  --color-clay-100: var(--bg-chip-warm);
+  --color-clay-500: #C2703F;
+  --color-clay-700: var(--color-clay);
+}
+
+:root,
+.light,
+[data-theme='light'] {
+  /* Warm Parchment Light Palette (Tactile Botanical Heritage) */
+  --bg-app: #FAF8F3;
+  --bg-app-alt: #FCF9F0;
+  --bg-card: #FFFFFF;
+  --bg-card-alt: #FCF9F0;
+  --bg-card-sunken: #F4F1E8;
+  --bg-chip: #E9FFEC;
+  --bg-chip-warm: #FEF3C7;
+  --bg-nav: rgba(250, 248, 243, 0.88);
+  --border-card: rgba(15, 61, 46, 0.08);
+  --border-strong: rgba(15, 61, 46, 0.18);
+  --text-heading: #0F3D2E;
+  --text-body: #374B3E;
+  --text-muted: #5C6B64;
+  --text-accent: #8C6A4D;
+  --color-primary: #0F3D2E;
+  --color-leaf: #22C55E;
+  --color-clay: #C2703F;
+  --card-shadow: 0 4px 20px -2px rgba(15, 61, 46, 0.05);
+  --card-shadow-hover: 0 12px 30px -4px rgba(15, 61, 46, 0.08);
+}
+
+.dark,
+[data-theme='dark'] {
+  /* Deep Forest Green Dark Palette (High-Tech Organic Night Mode) */
+  --bg-app: #07130E;
+  --bg-app-alt: #0A1C14;
+  --bg-card: #0E221A;
+  --bg-card-alt: #132C22;
+  --bg-card-sunken: #091A13;
+  --bg-chip: rgba(42, 213, 139, 0.15);
+  --bg-chip-warm: rgba(245, 158, 11, 0.15);
+  --bg-nav: rgba(7, 19, 14, 0.88);
+  --border-card: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(42, 213, 139, 0.25);
+  --text-heading: #FAF8F3;
+  --text-body: #D1E0D7;
+  --text-muted: #8EA899;
+  --text-accent: #D9F99D;
+  --color-primary: #2AD58B;
+  --color-leaf: #2AD58B;
+  --color-clay: #E0854D;
+  --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --card-shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    background-color: var(--bg-app);
+    color: var(--text-body);
+  }
+
+  body {
+    background-color: var(--bg-app);
+    color: var(--text-body);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    text-wrap: balance;
+    color: var(--text-heading);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────────────────
+   Theme-Adaptive Bento & Editorial Components
+   ──────────────────────────────────────────────────────────────────────────── */
+
+.bento-card {
+  background-color: var(--bg-card);
+  border-radius: 1.5rem;
+  border: 1px solid var(--border-card);
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.bento-card-alt {
+  background-color: var(--bg-card-alt);
+  border-radius: 1.5rem;
+  border: 1px solid var(--border-card);
+  box-shadow: var(--card-shadow);
+}
+
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  border-radius: 9999px;
+  padding: 0.375rem 0.875rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.btn-clay {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #C2703F;
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 0.75rem 1.75rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(194, 112, 63, 0.3);
+}
+
+.btn-clay:hover {
+  background-color: #A85A2E;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(194, 112, 63, 0.4);
+}
+
+.btn-forest {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #0F3D2E;
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 0.75rem 1.75rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(15, 61, 46, 0.25);
+}
+
+.dark .btn-forest {
+  background-color: #175440;
+  color: #FAF8F3;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+.btn-forest:hover {
+  background-color: #175440;
+  transform: translateY(-1px);
+}
+
+.dark .btn-forest:hover {
+  background-color: #227559;
+}
+
+.glass-pill-light {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-card);
+  box-shadow: var(--card-shadow);
+}

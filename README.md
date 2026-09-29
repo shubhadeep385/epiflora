@@ -122,6 +122,6 @@ Finally, the team plans to explore partnerships with **Krishi Vigyan Kendras and
 
 ## Vision
 
-EpiFlora's long-term vision is to create an agricultural intelligence layer that is **multimodal, multilingual, locally grounded, environmentally aware, and accessible to farmers regardless of technical literacy**.
+EpiFlora's long-term vision is to create an agricultural intelligence layer that is **multimodal, multilingual, locally grounded, environmentally aware, and accessible to farmers regardless of technical literacy.**
 
 By combining Google AI, regional voice technology, deterministic agricultural science, and interoperable BRICS-focused knowledge structures, EpiFlora aims to turn a farmer's smartphone into a practical agricultural intelligence companion—helping farmers understand crop health, environmental risk, soil limitations, and regenerative practices through a simple, natural interface.

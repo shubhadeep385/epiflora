@@ -11,7 +11,7 @@
 **Team Members:** 
  - [Shubhadeep Mukherjee](https://github.com/shubhadeep385)
  - [Sriraj Gangdeb]()
- - [Manisha Pathy]()
+ - [Manisha Pathy](https://github.com/manishapathy06)
  - [Rani Dynna Pathy]()
 
 **Project:** EpiFlora (कृषि-नोड)
